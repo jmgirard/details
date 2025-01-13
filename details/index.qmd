@@ -1,0 +1,56 @@
+---
+title: "Details Demo"
+---
+
+## Example 1
+
+This example shows the use of the `dtext` shortcode (or the `d_t` alias) to quickly create a details block containing text. The default summary text of "Details" is used.
+
+### Syntax
+`{{{< dtext "This is the collapsed text." >}}}`
+
+### Output
+{{< dtext "This is the collapsed text." >}}
+
+## Example 2
+
+This example shows the use of the `dtext` shortcode (or the `d_t` alias) to quickly create a details block containing text. The summary text is configured with an additional argument.
+
+### Syntax
+`{{{< dtext "This is the collapsed text." summary="Hint" >}}}`
+
+### Output
+
+{{< dtext "This is the collapsed text." summary="Hint" >}}
+
+## Example 3
+
+This examples shows the use of the `dopen` and `dclose` shortcodes (or the `d_o` and `d_c` aliases) to create a more flexible details block containing markdown as well as an executed code chunk.
+
+### Syntax
+
+````md
+{{{< dopen summary="Answer Key" >}}}
+
+**Here is some markdown**
+
+```{{r}}
+# And here is an R code chunk
+plot(iris$Sepal.Length, iris$Sepal.Width)
+```
+
+{{{< dclose >}}}
+````
+
+### Output
+
+{{< dopen summary="Answer Key" >}}
+
+**Here is some markdown**
+
+```{r}
+# And here is an R code chunk
+plot(iris$Sepal.Length, iris$Sepal.Width)
+```
+
+{{< dclose >}}
