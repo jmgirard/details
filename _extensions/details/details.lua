@@ -1,44 +1,23 @@
 -- dtext shortcode 
 function dtext(args, kwargs, meta)
-  local text = pandoc.utils.stringify(args[1])
-  local summary = pandoc.utils.stringify(kwargs['summary'])
-  local p = pandoc.utils.stringify(kwargs['p'])
-  local blockquote = pandoc.utils.stringify(kwargs['blockquote'])
-  local class = pandoc.utils.stringify(kwargs['class'])
-
-  output = ''
-  if p ~= 'false' then
-    output = output .. '<p>'
+  local function buildDetails(text, summary, open)
+    local details = {
+      '<p>',
+      '<details' .. open .. '>',
+      '<summary>' .. summary .. '</summary>',
+      '<blockquote>' .. text .. '</blockquote>',
+      '</details>',
+      '</p>'
+    }
+    return table.concat(details, "")
   end
-  
-  output = output .. '<details'
-  if class ~= '' then
-    output = output .. ' class="' .. class .. '"'
+  local text = pandoc.utils.stringify(args[1] or 'Add content here.')
+  local summary = (#kwargs["summary"] > 0) and kwargs["summary"] or "Details"
+  local open = ""
+  if table.concat(args, " ", 2):find("open") then
+    open = " open"
   end
-
-  output = output .. ">"
-  if summary ~= '' then
-    output = output .. '<summary>' .. summary ..'</summary>'
-  else
-    output = output .. '<summary>Details</summary>'
-  end
-
-  if blockquote ~= 'false' then
-    output = output .. '<blockquote>'
-  end
-
-  output = output .. text
-
-  if blockquote ~= 'false' then
-    output = output .. '</blockquote>'
-  end
-
-  output = output .. '</details>'
-
-  if p ~= 'false' then
-    output = output .. '</p>'
-  end
-
+  local output = buildDetails(text, summary, open)
   if quarto.doc.isFormat("html:js") then
     return pandoc.RawInline('html', output)
   else 
@@ -46,32 +25,23 @@ function dtext(args, kwargs, meta)
   end
 end
 
--- dopen shortcode
-function dopen(args, kwargs, meta)
-  local summary = pandoc.utils.stringify(kwargs['summary'])
-  local p = pandoc.utils.stringify(kwargs['p'])
-  local blockquote = pandoc.utils.stringify(kwargs['blockquote'])
-  local class = pandoc.utils.stringify(kwargs['class'])
-
-  output = ''
-  if p ~= 'false' then
-    output = output .. '<p>'
+-- dstart shortcode
+function dstart(args, kwargs, meta)
+  local function buildDetails(summary, open)
+    local details = {
+      '<p>',
+      '<details' .. open .. '>',
+      '<summary>' .. summary .. '</summary>',
+      '<blockquote>'
+    }
+    return table.concat(details, "")
   end
-  
-  output = output .. '<details'
-  if class ~= '' then
-    output = output .. ' class="' .. class .. '"'
+  local summary = (#kwargs["summary"] > 0) and kwargs["summary"] or "Details"
+  local open = ""
+  if table.concat(args, " "):find("open") then
+    open = " open"
   end
-
-  output = output .. ">"
-  if summary ~= '' then
-    output = output .. '<summary>' .. summary ..'</summary>'
-  end
-
-  if blockquote ~= 'false' then
-    output = output .. '<blockquote>'
-  end
-
+  local output = buildDetails(summary, open)
   if quarto.doc.isFormat("html:js") then
     return pandoc.RawInline('html', output)
   else 
@@ -79,43 +49,12 @@ function dopen(args, kwargs, meta)
   end
 end
 
--- dclose shortcode
-function dclose(args, kwargs, meta)
-  local p = pandoc.utils.stringify(kwargs['p'])
-  local blockquote = pandoc.utils.stringify(kwargs['blockquote'])
-
-  output = ''
-
-  if blockquote ~= '' then
-    output = output .. '</blockquote>'
-  end
-
-  output = output .. '</details>'
-
-  if p ~= '' then
-    output = output .. '</p>'
-  end
-
+-- dstop shortcode
+function dstop(args, kwargs, meta)
+  local output = table.concat({'</blockquote>', '</details>', '</p>'}, "")
   if quarto.doc.isFormat("html:js") then
     return pandoc.RawInline('html', output)
   else 
     return pandoc.Null()
   end
-end
-
-
-
--- d_o alias
-function d_o(...)
-  return dopen(...)
-end
-
--- d_c alias
-function d_c(...)
-  return dclose(...)
-end
-
--- d_t alias
-function d_t(...)
-  return dtext(...)
 end

@@ -4,33 +4,44 @@ title: "Details Demo"
 
 ## Example 1
 
-This example shows the use of the `dtext` shortcode (or the `d_t` alias) to quickly create a details block containing text. The default summary text of "Details" is used.
+This example shows the use of the `dtext` shortcode to quickly create a details block containing text. The default summary text of "Details" is used and the details block is closed until opened.
 
 ### Syntax
-`{{{< dtext "This is the collapsed text." >}}}`
+`{{{< dtext "This is details text." >}}}`
 
 ### Output
-{{< dtext "This is the collapsed text." >}}
+{{< dtext "This is details text." >}}
 
 ## Example 2
 
-This example shows the use of the `dtext` shortcode (or the `d_t` alias) to quickly create a details block containing text. The summary text is configured with an additional argument.
+This example shows the use of the `summary` argument to control the summary text.
 
 ### Syntax
-`{{{< dtext "This is the collapsed text." summary="Hint" >}}}`
+`{{{< dtext "This is details text." summary="Hint" >}}}`
 
 ### Output
 
-{{< dtext "This is the collapsed text." summary="Hint" >}}
+{{< dtext "This is details text." summary="Hint" >}}
 
 ## Example 3
 
-This examples shows the use of the `dopen` and `dclose` shortcodes (or the `d_o` and `d_c` aliases) to create a more flexible details block containing markdown as well as an executed code chunk.
+This example shows the use of the `open` flag to make the details block open until closed.
+
+### Syntax
+`{{{< dtext "This is details text that is visible by default." summary="Hint" open >}}}`
+
+### Output
+
+{{< dtext "This is details text that is visible by default." summary="Hint" open >}}
+
+## Example 4
+
+This example shows the use of the `dstart` and `dstop` shortcodes to create a more flexible details block containing markdown as well as an executed code chunk.
 
 ### Syntax
 
 ````md
-{{{< dopen summary="Answer Key" >}}}
+{{{< dstart summary="Answer Key" >}}}
 
 **Here is some markdown**
 
@@ -39,12 +50,12 @@ This examples shows the use of the `dopen` and `dclose` shortcodes (or the `d_o`
 plot(iris$Sepal.Length, iris$Sepal.Width)
 ```
 
-{{{< dclose >}}}
+{{{< dstop >}}}
 ````
 
 ### Output
 
-{{< dopen summary="Answer Key" >}}
+{{< dstart summary="Answer Key" >}}
 
 **Here is some markdown**
 
@@ -53,4 +64,36 @@ plot(iris$Sepal.Length, iris$Sepal.Width)
 plot(iris$Sepal.Length, iris$Sepal.Width)
 ```
 
-{{< dclose >}}
+{{< dstop >}}
+
+## Example 5
+
+This example shows that the `open` flag works with the dstart shortcode too.
+
+### Syntax
+
+````md
+{{{< dstart summary="Answer Key" open >}}}
+
+**Here is some markdown**
+
+```{{r}}
+# And here is an R code chunk
+plot(iris$Sepal.Length, iris$Sepal.Width)
+```
+
+{{{< dstop >}}}
+````
+
+### Output
+
+{{< dstart summary="Answer Key" open >}}
+
+**Here is some markdown**
+
+```{r}
+# And here is an R code chunk
+plot(iris$Sepal.Length, iris$Sepal.Width)
+```
+
+{{< dstop >}}
