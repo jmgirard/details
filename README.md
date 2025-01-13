@@ -17,29 +17,29 @@ If you're using version control, you will want to check in this directory.
 
 ### Simple text
 
-`{{{< dtext "This is the collapsed text." >}}}`
+`{{< dtext "This is the collapsed text." >}}`
 
 ### Customize summary
 
-`{{{< dtext "This is the collapsed text." summary="Hint" >}}}`
+`{{< dtext "This is the collapsed text." summary="Hint" >}}`
 
 ### Start open/uncollapsed
 
-`{{{< dtext "This is the collapsed text." summary="Hint" open >}}}`
+`{{< dtext "This is the collapsed text." summary="Hint" open >}}`
 
 ### Complex contents with start/stop
 
 ````md
-{{{< dstart summary="Answer Key" >}}}
+{{< dstart summary="Answer Key" >}}
 
 **Here is some markdown**
 
-```{{r}}
+```{r}
 # And here is an R code chunk
 plot(iris$Sepal.Length, iris$Sepal.Width)
 ```
 
-{{{< dstop >}}}
+{{< dstop >}}
 ````
 
 ## Example
