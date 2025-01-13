@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Details Demo",
+    "section": "",
+    "text": "This example shows the use of the dtext shortcode to quickly create a details block containing text. The default summary text of “Details” is used and the details block is closed until opened.\n\n\n{{&lt; dtext \"This is details text.\" &gt;}}\n\n\n\nDetailsThis is details text."
+  },
+  {
+    "objectID": "index.html#example-1",
+    "href": "index.html#example-1",
+    "title": "Details Demo",
+    "section": "",
+    "text": "This example shows the use of the dtext shortcode to quickly create a details block containing text. The default summary text of “Details” is used and the details block is closed until opened.\n\n\n{{&lt; dtext \"This is details text.\" &gt;}}\n\n\n\nDetailsThis is details text."
+  },
+  {
+    "objectID": "index.html#example-2",
+    "href": "index.html#example-2",
+    "title": "Details Demo",
+    "section": "Example 2",
+    "text": "Example 2\nThis example shows the use of the summary argument to control the summary text.\n\nSyntax\n{{&lt; dtext \"This is details text.\" summary=\"Hint\" &gt;}}\n\n\nOutput\nHintThis is details text."
+  },
+  {
+    "objectID": "index.html#example-3",
+    "href": "index.html#example-3",
+    "title": "Details Demo",
+    "section": "Example 3",
+    "text": "Example 3\nThis example shows the use of the open flag to make the details block open until closed.\n\nSyntax\n{{&lt; dtext \"This is details text that is visible by default.\" summary=\"Hint\" open &gt;}}\n\n\nOutput\nHintThis is details text that is visible by default."
+  },
+  {
+    "objectID": "index.html#example-4",
+    "href": "index.html#example-4",
+    "title": "Details Demo",
+    "section": "Example 4",
+    "text": "Example 4\nThis example shows the use of the dstart and dstop shortcodes to create a more flexible details block containing markdown as well as an executed code chunk.\n\nSyntax\n{{&lt; dstart summary=\"Answer Key\" &gt;}}\n\n**Here is some markdown**\n\n```{r}\n# And here is an R code chunk\nplot(iris$Sepal.Length, iris$Sepal.Width)\n```\n\n{{&lt; dstop &gt;}}\n\n\nOutput\nAnswer Key\nHere is some markdown\n\n# And here is an R code chunk\nplot(iris$Sepal.Length, iris$Sepal.Width)"
+  },
+  {
+    "objectID": "index.html#example-5",
+    "href": "index.html#example-5",
+    "title": "Details Demo",
+    "section": "Example 5",
+    "text": "Example 5\nThis example shows that the open flag works with the dstart shortcode too.\n\nSyntax\n{{&lt; dstart summary=\"Answer Key\" open &gt;}}\n\n**Here is some markdown**\n\n```{r}\n# And here is an R code chunk\nplot(iris$Sepal.Length, iris$Sepal.Width)\n```\n\n{{&lt; dstop &gt;}}\n\n\nOutput\nAnswer Key\nHere is some markdown\n\n# And here is an R code chunk\nplot(iris$Sepal.Length, iris$Sepal.Width)"
+  }
+]

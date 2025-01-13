@@ -1,2 +1,4 @@
+project:
+  type: website
 execute:
   freeze: auto
