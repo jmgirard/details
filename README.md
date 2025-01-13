@@ -32,4 +32,4 @@ plot(iris$Sepal.Length, iris$Sepal.Width)
 
 ## Example
 
-Here is a demo for the details extension: [index.html](https://jmgirard.github.io/honeypot).
+Here is a demo for the details extension: [index.html](https://jmgirard.github.io/details).

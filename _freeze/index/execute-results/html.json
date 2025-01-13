@@ -1,0 +1,17 @@
+{
+  "hash": "e4b7f27d84326ffe19181f5cc6914463",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Details Demo\"\n---\n\n\n\n## Example 1\n\nThis example shows the use of the `dtext` shortcode (or the `d_t` alias) to quickly create a details block containing text. The default summary text of \"Details\" is used.\n\n### Syntax\n`{{{< dtext \"This is the collapsed text.\" >}}}`\n\n### Output\n\n\n{{< dtext \"This is the collapsed text.\" >}}\n\n\n\n\n## Example 2\n\nThis example shows the use of the `dtext` shortcode (or the `d_t` alias) to quickly create a details block containing text. The summary text is configured with an additional argument.\n\n### Syntax\n`{{{< dtext \"This is the collapsed text.\" summary=\"Hint\" >}}}`\n\n### Output\n\n\n\n{{< dtext \"This is the collapsed text.\" summary=\"Hint\" >}}\n\n\n\n\n## Example 3\n\nThis examples shows the use of the `dopen` and `dclose` shortcodes (or the `d_o` and `d_c` aliases) to create a more flexible details block containing markdown as well as an executed code chunk.\n\n### Syntax\n\n````md\n{{{< dopen summary=\"Answer Key\" >}}}\n\n**Here is some markdown**\n\n```{{r}}\n# And here is an R code chunk\nplot(iris$Sepal.Length, iris$Sepal.Width)\n```\n\n{{{< dclose >}}}\n````\n\n### Output\n\n\n\n{{< dopen summary=\"Answer Key\" >}}\n\n\n\n\n**Here is some markdown**\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# And here is an R code chunk\nplot(iris$Sepal.Length, iris$Sepal.Width)\n```\n\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-1-1.png){width=672}\n:::\n:::\n\n{{< dclose >}}\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
