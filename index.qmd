@@ -68,7 +68,7 @@ plot(iris$Sepal.Length, iris$Sepal.Width)
 
 ## Example 5
 
-This example shows that the `open` flag works with the dstart shortcode too.
+This example shows that the `open` flag works with the `dstart` shortcode too.
 
 ### Syntax
 
