@@ -2,6 +2,8 @@
 
 This extension can easily add interactive "details" blocks (which can be toggled between open and collapsed) to Quarto HTML documents. This can be useful for adding hints, answer keys, and supplemental information to documents. It is similar to "code folding" but for a more flexible range of contents.
 
+![](example5.png)
+
 ## Installing
 
 ```bash
