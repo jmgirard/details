@@ -1,5 +1,166 @@
 [
   {
+    "objectID": "CHANGELOG.html",
+    "href": "CHANGELOG.html",
+    "title": "Changelog",
+    "section": "",
+    "text": "Tagged 1.0.0. Earlier history predates this changelog — see git log."
+  },
+  {
+    "objectID": "CHANGELOG.html#section",
+    "href": "CHANGELOG.html#section",
+    "title": "Changelog",
+    "section": "",
+    "text": "Tagged 1.0.0. Earlier history predates this changelog — see git log."
+  },
+  {
+    "objectID": "cairn/DESIGN.html",
+    "href": "cairn/DESIGN.html",
+    "title": "Design",
+    "section": "",
+    "text": "Architecture as it is, not as it will be. No status, no task lists, no future work (those live in ROADMAP.md and the milestone files).\n\nSeeded by /cairn-init on 2026-08-16 from a read of the source and README — not elicited. Purpose & Scope and Conventions below are honest observations of what the code does today. The Design Principles section is deliberately empty: cairn never invents principles. Run /design-interview to elicit the contract boundary and the IP/GP principles the code cannot show.\n\n\n\ndetails is a Quarto extension that adds collapsible &lt;details&gt; blocks to Quarto HTML documents via shortcodes. The motivating use is instructional material — hints, answer keys, and supplemental information a reader can reveal on demand — filling a gap that Quarto’s built-in code folding covers only for code.\n\nDistributed as a Quarto extension, installed with quarto add jmgirard/details; there is no package-registry step.\nShips three shortcodes: dtext (single-argument inline block), and the dstart / dstop pair that wraps arbitrary markdown, including executed code chunks.\nHTML-only by scope: on any non-html:js format the shortcodes emit nothing.\nindex.qmd is both the demo and the de facto test — it is published to https://jmgirard.github.io/details.\n\n\n\n\n\nShortcode entry points (_extensions/details/details.lua) — dtext, dstart, dstop. Each is a Quarto shortcode handler taking (args, kwargs, meta) and returning a pandoc.RawInline('html', …) under HTML or pandoc.Null() otherwise.\nMarkup builders — the local buildDetails closures inside dtext and dstart, which assemble the raw HTML string.\n\n\n\n\n\nEmitted markup is a fixed nesting: &lt;p&gt;&lt;details[ open]&gt;&lt;summary&gt;…&lt;/summary&gt; &lt;blockquote&gt;…&lt;/blockquote&gt;&lt;/details&gt;&lt;/p&gt;. The &lt;blockquote&gt; is the visual treatment for details content; the wrapping &lt;p&gt; keeps the block inside Pandoc’s inline flow.\nArgument surface: the first positional argument is the content (dtext only); summary= is a keyword argument defaulting to \"Details\"; open is a bare positional flag detected by substring search over the remaining arguments.\nFormat gating goes through quarto.doc.isFormat(\"html:js\"); every handler gates, and the non-HTML branch is always pandoc.Null().\nExtension metadata (_extensions/details/_extension.yml) carries the version and quarto-required: \"&gt;=1.6.0\".\nNumeric results, should any arise, require oracle verification (≥2 independent types) before being claimed — the universal cairn validation doctrine.\n\n\n\n\n\nNone elicited yet — run /design-interview.\n\n\n\nA single Lua filter file registered as a Quarto shortcode contributor. There is no build step, no dependency beyond Quarto ≥ 1.6.0 and Pandoc’s Lua API, and no runtime state: each shortcode invocation is a pure string-assembly function of its arguments.\nThe repo doubles as its own demo site — _quarto.yml declares a website project with freeze: auto, and the rendered _site/ and _freeze/ outputs are committed so GitHub Pages can serve them.\n\n\n\n\nOn non-HTML formats the shortcodes emit nothing at all, so details content is silently dropped rather than degraded to visible text — a PDF or docx render loses the hint or answer key with no warning.\ndstart / dstop are unbalanced-by-construction: nothing checks that a dstart is closed, and an unmatched one emits unclosed HTML tags.\nThere is no test harness for the Lua filter; quarto render of the demo is the only automated check (see cairn/PROFILE.md → verify)."
+  },
+  {
+    "objectID": "cairn/DESIGN.html#purpose-scope",
+    "href": "cairn/DESIGN.html#purpose-scope",
+    "title": "Design",
+    "section": "",
+    "text": "details is a Quarto extension that adds collapsible &lt;details&gt; blocks to Quarto HTML documents via shortcodes. The motivating use is instructional material — hints, answer keys, and supplemental information a reader can reveal on demand — filling a gap that Quarto’s built-in code folding covers only for code.\n\nDistributed as a Quarto extension, installed with quarto add jmgirard/details; there is no package-registry step.\nShips three shortcodes: dtext (single-argument inline block), and the dstart / dstop pair that wraps arbitrary markdown, including executed code chunks.\nHTML-only by scope: on any non-html:js format the shortcodes emit nothing.\nindex.qmd is both the demo and the de facto test — it is published to https://jmgirard.github.io/details."
+  },
+  {
+    "objectID": "cairn/DESIGN.html#function-families",
+    "href": "cairn/DESIGN.html#function-families",
+    "title": "Design",
+    "section": "",
+    "text": "Shortcode entry points (_extensions/details/details.lua) — dtext, dstart, dstop. Each is a Quarto shortcode handler taking (args, kwargs, meta) and returning a pandoc.RawInline('html', …) under HTML or pandoc.Null() otherwise.\nMarkup builders — the local buildDetails closures inside dtext and dstart, which assemble the raw HTML string."
+  },
+  {
+    "objectID": "cairn/DESIGN.html#conventions",
+    "href": "cairn/DESIGN.html#conventions",
+    "title": "Design",
+    "section": "",
+    "text": "Emitted markup is a fixed nesting: &lt;p&gt;&lt;details[ open]&gt;&lt;summary&gt;…&lt;/summary&gt; &lt;blockquote&gt;…&lt;/blockquote&gt;&lt;/details&gt;&lt;/p&gt;. The &lt;blockquote&gt; is the visual treatment for details content; the wrapping &lt;p&gt; keeps the block inside Pandoc’s inline flow.\nArgument surface: the first positional argument is the content (dtext only); summary= is a keyword argument defaulting to \"Details\"; open is a bare positional flag detected by substring search over the remaining arguments.\nFormat gating goes through quarto.doc.isFormat(\"html:js\"); every handler gates, and the non-HTML branch is always pandoc.Null().\nExtension metadata (_extensions/details/_extension.yml) carries the version and quarto-required: \"&gt;=1.6.0\".\nNumeric results, should any arise, require oracle verification (≥2 independent types) before being claimed — the universal cairn validation doctrine."
+  },
+  {
+    "objectID": "cairn/DESIGN.html#design-principles",
+    "href": "cairn/DESIGN.html#design-principles",
+    "title": "Design",
+    "section": "",
+    "text": "None elicited yet — run /design-interview."
+  },
+  {
+    "objectID": "cairn/DESIGN.html#architecture",
+    "href": "cairn/DESIGN.html#architecture",
+    "title": "Design",
+    "section": "",
+    "text": "A single Lua filter file registered as a Quarto shortcode contributor. There is no build step, no dependency beyond Quarto ≥ 1.6.0 and Pandoc’s Lua API, and no runtime state: each shortcode invocation is a pure string-assembly function of its arguments.\nThe repo doubles as its own demo site — _quarto.yml declares a website project with freeze: auto, and the rendered _site/ and _freeze/ outputs are committed so GitHub Pages can serve them."
+  },
+  {
+    "objectID": "cairn/DESIGN.html#known-issues",
+    "href": "cairn/DESIGN.html#known-issues",
+    "title": "Design",
+    "section": "",
+    "text": "On non-HTML formats the shortcodes emit nothing at all, so details content is silently dropped rather than degraded to visible text — a PDF or docx render loses the hint or answer key with no warning.\ndstart / dstop are unbalanced-by-construction: nothing checks that a dstart is closed, and an unmatched one emits unclosed HTML tags.\nThere is no test harness for the Lua filter; quarto render of the demo is the only automated check (see cairn/PROFILE.md → verify)."
+  },
+  {
+    "objectID": "cairn/DECISIONS.html",
+    "href": "cairn/DECISIONS.html",
+    "title": "Decisions",
+    "section": "",
+    "text": "Decisions\nAppend-only. Never renumber; supersede with a new entry. D-entries record choices with rationale — including genuine rejections (“considered X, rejected because…”). They never record deferrals: “not now” is a ROADMAP fact (candidate row or future milestone), not a decision.\n\nD-001 (2026-08-16): Adopt cairn with the generic toolchain profile\nContext: The repo is a Quarto extension (Lua shortcodes + _extension.yml) with no DESCRIPTION, pyproject.toml, or Dockerfile — none of cairn’s recognized toolchain markers. Decision: Adopt cairn on the generic profile, declaring quarto render as the verify command and CHANGELOG.md as the changelog file. Consequences: No toolchain-specific consistency gate; the tag is the release (no package-registry step). verify rests on the demo render until a real Lua test harness exists (banked as a ROADMAP candidate)."
+  },
+  {
+    "objectID": "cairn/ROADMAP.html",
+    "href": "cairn/ROADMAP.html",
+    "title": "Roadmap",
+    "section": "",
+    "text": "The only authority on milestone status. Grouped by status, not ID. Last hygiene check: 2026-08-16 (scaffolded by /cairn-init; no milestones yet)\n\n\n\n\n\nID\nTitle\nStatus\nDepends on\nPriority\nFile/Archive\n\n\n\n\n\n\n\n\n\n\n\nAdd an automated test harness for the Lua shortcodes (render fixtures, assert emitted &lt;details&gt; markup) — added 2026-08-16 — would upgrade PROFILE verify beyond a bare quarto render"
+  },
+  {
+    "objectID": "cairn/ROADMAP.html#milestones",
+    "href": "cairn/ROADMAP.html#milestones",
+    "title": "Roadmap",
+    "section": "",
+    "text": "ID\nTitle\nStatus\nDepends on\nPriority\nFile/Archive"
+  },
+  {
+    "objectID": "cairn/ROADMAP.html#candidates",
+    "href": "cairn/ROADMAP.html#candidates",
+    "title": "Roadmap",
+    "section": "",
+    "text": "Add an automated test harness for the Lua shortcodes (render fixtures, assert emitted &lt;details&gt; markup) — added 2026-08-16 — would upgrade PROFILE verify beyond a bare quarto render"
+  },
+  {
+    "objectID": "cairn/PROFILE.html",
+    "href": "cairn/PROFILE.html",
+    "title": "Toolchain profile: generic",
+    "section": "",
+    "text": "The language-agnostic default: cairn’s core with no toolchain-specific gates. Selected by cairn-init when no DESCRIPTION (or other recognized toolchain marker) is present. A repo replaces the placeholder in verify with its own test command; the other slots stand as-is until a richer profile is authored.\n\n\nThe command(s) /milestone-implement and /hotfix run to check a task before ticking it off. This repo declares:\nquarto render\nRendering index.qmd (the demo document) exercises every shortcode (dtext / dstart / dstop) end-to-end through the real Quarto pipeline — a render that fails, or that emits no &lt;details&gt; markup, is a failed verify. There is no unit-test harness for the Lua filter yet; until there is, the render is the whole automated check and acceptance-criteria evidence carries the rest.\n\n\n\nToolchain checks /milestone-review runs in addition to the universal cairn-file checks (cairn_validate, coverage completeness, cairn_impact). Generic default: none — the universal cairn-file checks are the whole consistency gate.\n\n\n\nToolchain-specific test expectations layered on the universal “What gets a test” rules in tracking-rules. Generic default: none beyond the universal rules — every bug fix gets a regression test, every documented claim a test, contract-not-implementation, and the oracle doctrine for any numeric result.\n\n\n\nThe release procedure /cairn-release follows. Generic default: a minimal language-agnostic walk — no package-registry submission; the tag is the release: - Decide the version bump (patch/minor/major) from the declared changelog (## changelog slot; “none” → derive the bump from git history). - Consolidate the declared changelog: retitle the dev heading to the version, group entries, prune noise (“none” → skip this step). - Bump the repo’s version marker and commit the release prep to the default branch (docs/metadata only). - Tag and push the tag at the user’s approval — no registry step. This repo’s existing tag is 1.0.0, with no v prefix; match that convention rather than the v&lt;version&gt; generic default. - Where the origin remote is GitHub and gh is available, the handoff also provides a gh release create command whose body is the new changelog section (provided, never run — the universal step 4).\n\n\n\nHow cairn-init recognizes this toolchain. Generic is the fallback: no DESCRIPTION and no other recognized toolchain marker.\n\n\n\nOpener questions cairn-init asks in a new/empty repo of this type. Generic default: no language-specific openers — the universal opener layer (distribution ambition, rendered here as a tagged public release vs. internal-only choice, and numeric-work-needs-oracle-verification) is the whole greenfield flow for a generic repo; a richer profile adds its own on top.\n\n\n\nThe repo’s changelog file, read by /hotfix, the release-walk, and the consistency-gate. This repo declares: CHANGELOG.md (repo root).\nThe version marker the release-walk bumps is version: in _extensions/details/_extension.yml; it must match the newest CHANGELOG.md heading and the v&lt;version&gt; tag."
+  },
+  {
+    "objectID": "cairn/PROFILE.html#verify",
+    "href": "cairn/PROFILE.html#verify",
+    "title": "Toolchain profile: generic",
+    "section": "",
+    "text": "The command(s) /milestone-implement and /hotfix run to check a task before ticking it off. This repo declares:\nquarto render\nRendering index.qmd (the demo document) exercises every shortcode (dtext / dstart / dstop) end-to-end through the real Quarto pipeline — a render that fails, or that emits no &lt;details&gt; markup, is a failed verify. There is no unit-test harness for the Lua filter yet; until there is, the render is the whole automated check and acceptance-criteria evidence carries the rest."
+  },
+  {
+    "objectID": "cairn/PROFILE.html#consistency-gate",
+    "href": "cairn/PROFILE.html#consistency-gate",
+    "title": "Toolchain profile: generic",
+    "section": "",
+    "text": "Toolchain checks /milestone-review runs in addition to the universal cairn-file checks (cairn_validate, coverage completeness, cairn_impact). Generic default: none — the universal cairn-file checks are the whole consistency gate."
+  },
+  {
+    "objectID": "cairn/PROFILE.html#test-doctrine",
+    "href": "cairn/PROFILE.html#test-doctrine",
+    "title": "Toolchain profile: generic",
+    "section": "",
+    "text": "Toolchain-specific test expectations layered on the universal “What gets a test” rules in tracking-rules. Generic default: none beyond the universal rules — every bug fix gets a regression test, every documented claim a test, contract-not-implementation, and the oracle doctrine for any numeric result."
+  },
+  {
+    "objectID": "cairn/PROFILE.html#release-walk",
+    "href": "cairn/PROFILE.html#release-walk",
+    "title": "Toolchain profile: generic",
+    "section": "",
+    "text": "The release procedure /cairn-release follows. Generic default: a minimal language-agnostic walk — no package-registry submission; the tag is the release: - Decide the version bump (patch/minor/major) from the declared changelog (## changelog slot; “none” → derive the bump from git history). - Consolidate the declared changelog: retitle the dev heading to the version, group entries, prune noise (“none” → skip this step). - Bump the repo’s version marker and commit the release prep to the default branch (docs/metadata only). - Tag and push the tag at the user’s approval — no registry step. This repo’s existing tag is 1.0.0, with no v prefix; match that convention rather than the v&lt;version&gt; generic default. - Where the origin remote is GitHub and gh is available, the handoff also provides a gh release create command whose body is the new changelog section (provided, never run — the universal step 4)."
+  },
+  {
+    "objectID": "cairn/PROFILE.html#init-detection",
+    "href": "cairn/PROFILE.html#init-detection",
+    "title": "Toolchain profile: generic",
+    "section": "",
+    "text": "How cairn-init recognizes this toolchain. Generic is the fallback: no DESCRIPTION and no other recognized toolchain marker."
+  },
+  {
+    "objectID": "cairn/PROFILE.html#greenfield-openers",
+    "href": "cairn/PROFILE.html#greenfield-openers",
+    "title": "Toolchain profile: generic",
+    "section": "",
+    "text": "Opener questions cairn-init asks in a new/empty repo of this type. Generic default: no language-specific openers — the universal opener layer (distribution ambition, rendered here as a tagged public release vs. internal-only choice, and numeric-work-needs-oracle-verification) is the whole greenfield flow for a generic repo; a richer profile adds its own on top."
+  },
+  {
+    "objectID": "cairn/PROFILE.html#changelog",
+    "href": "cairn/PROFILE.html#changelog",
+    "title": "Toolchain profile: generic",
+    "section": "",
+    "text": "The repo’s changelog file, read by /hotfix, the release-walk, and the consistency-gate. This repo declares: CHANGELOG.md (repo root).\nThe version marker the release-walk bumps is version: in _extensions/details/_extension.yml; it must match the newest CHANGELOG.md heading and the v&lt;version&gt; tag."
+  },
+  {
+    "objectID": "cairn/LESSONS.html",
+    "href": "cairn/LESSONS.html",
+    "title": "Lessons",
+    "section": "",
+    "text": "Lessons\nDurable repo lessons — current knowledge, not history. Corrected in place when proven false (mark the correction, e.g. corrected M07); never append a correction that leaves wrong text readable. Captured at milestone end, surfaced at plan time. Retired per the “Retiring a lesson” rules. Capped at 50 lines, one item per line."
+  },
+  {
+    "objectID": "cairn/references/INDEX.html",
+    "href": "cairn/references/INDEX.html",
+    "title": "References index",
+    "section": "",
+    "text": "References index\nOne line per committed page in cairn/references/. The raw source shelf (sources/) is gitignored; only the notes are committed."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Details Demo",

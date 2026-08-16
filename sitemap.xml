@@ -1,7 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://jmgirard.github.io/details/CHANGELOG.html</loc>
+    <lastmod>2026-08-16T22:51:33.965Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jmgirard.github.io/details/cairn/DESIGN.html</loc>
+    <lastmod>2026-08-16T22:51:33.975Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jmgirard.github.io/details/cairn/DECISIONS.html</loc>
+    <lastmod>2026-08-16T22:51:33.974Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jmgirard.github.io/details/cairn/ROADMAP.html</loc>
+    <lastmod>2026-08-16T22:51:33.975Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jmgirard.github.io/details/cairn/PROFILE.html</loc>
+    <lastmod>2026-08-16T22:51:33.975Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jmgirard.github.io/details/cairn/LESSONS.html</loc>
+    <lastmod>2026-08-16T22:51:33.975Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jmgirard.github.io/details/cairn/references/INDEX.html</loc>
+    <lastmod>2026-08-16T22:51:33.975Z</lastmod>
+  </url>
+  <url>
     <loc>https://jmgirard.github.io/details/index.html</loc>
-    <lastmod>2025-01-13T21:57:30.893Z</lastmod>
+    <lastmod>2026-08-16T22:51:33.975Z</lastmod>
   </url>
 </urlset>

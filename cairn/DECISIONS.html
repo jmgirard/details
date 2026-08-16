@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Details Demo</title>
+<title>decisions</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,60 +26,25 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-4404fc44ce39540de2993f3ab3e0ab5d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-4404fc44ce39540de2993f3ab3e0ab5d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -120,129 +85,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Details Demo</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="example-1" class="level2">
-<h2 class="anchored" data-anchor-id="example-1">Example 1</h2>
-<p>This example shows the use of the <code>dtext</code> shortcode to quickly create a details block containing text. The default summary text of “Details” is used and the details block is closed until opened.</p>
-<section id="syntax" class="level3">
-<h3 class="anchored" data-anchor-id="syntax">Syntax</h3>
-<p><code>{{&lt; dtext "This is details text." &gt;}}</code></p>
-</section>
-<section id="output" class="level3">
-<h3 class="anchored" data-anchor-id="output">Output</h3>
-<p></p><p></p><details><summary>Details</summary><blockquote class="blockquote">This is details text.</blockquote></details><p></p><p></p>
-</section>
-</section>
-<section id="example-2" class="level2">
-<h2 class="anchored" data-anchor-id="example-2">Example 2</h2>
-<p>This example shows the use of the <code>summary</code> argument to control the summary text.</p>
-<section id="syntax-1" class="level3">
-<h3 class="anchored" data-anchor-id="syntax-1">Syntax</h3>
-<p><code>{{&lt; dtext "This is details text." summary="Hint" &gt;}}</code></p>
-</section>
-<section id="output-1" class="level3">
-<h3 class="anchored" data-anchor-id="output-1">Output</h3>
-<p></p><p></p><details><summary>Hint</summary><blockquote class="blockquote">This is details text.</blockquote></details><p></p><p></p>
-</section>
-</section>
-<section id="example-3" class="level2">
-<h2 class="anchored" data-anchor-id="example-3">Example 3</h2>
-<p>This example shows the use of the <code>open</code> flag to make the details block open until closed.</p>
-<section id="syntax-2" class="level3">
-<h3 class="anchored" data-anchor-id="syntax-2">Syntax</h3>
-<p><code>{{&lt; dtext "This is details text that is visible by default." summary="Hint" open &gt;}}</code></p>
-</section>
-<section id="output-2" class="level3">
-<h3 class="anchored" data-anchor-id="output-2">Output</h3>
-<p></p><p></p><details open=""><summary>Hint</summary><blockquote class="blockquote">This is details text that is visible by default.</blockquote></details><p></p><p></p>
-</section>
-</section>
-<section id="example-4" class="level2">
-<h2 class="anchored" data-anchor-id="example-4">Example 4</h2>
-<p>This example shows the use of the <code>dstart</code> and <code>dstop</code> shortcodes to create a more flexible details block containing markdown as well as an executed code chunk.</p>
-<section id="syntax-3" class="level3">
-<h3 class="anchored" data-anchor-id="syntax-3">Syntax</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown md code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>{{&lt; dstart summary="Answer Key" &gt;}}</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>**Here is some markdown**</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># And here is an R code chunk</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Sepal.Width)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>{{&lt; dstop &gt;}}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="output-3" class="level3">
-<h3 class="anchored" data-anchor-id="output-3">Output</h3>
-<p></p><p></p><details><summary>Answer Key</summary><blockquote class="blockquote"><p></p>
-<p><strong>Here is some markdown</strong></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># And here is an R code chunk</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Sepal.Width)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p></p></blockquote></details><p></p><p></p>
-</section>
-</section>
-<section id="example-5" class="level2">
-<h2 class="anchored" data-anchor-id="example-5">Example 5</h2>
-<p>This example shows that the <code>open</code> flag works with the <code>dstart</code> shortcode too.</p>
-<section id="syntax-4" class="level3">
-<h3 class="anchored" data-anchor-id="syntax-4">Syntax</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode markdown md code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>{{&lt; dstart summary="Answer Key" open &gt;}}</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>**Here is some markdown**</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># And here is an R code chunk</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Sepal.Width)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>{{&lt; dstop &gt;}}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="output-4" class="level3">
-<h3 class="anchored" data-anchor-id="output-4">Output</h3>
-<p></p><p></p><details open=""><summary>Answer Key</summary><blockquote class="blockquote"><p></p>
-<p><strong>Here is some markdown</strong></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># And here is an R code chunk</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Sepal.Width)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p></p></blockquote></details><p></p><p></p>
+<section id="decisions" class="level1">
+<h1>Decisions</h1>
+<p><em>Append-only. Never renumber; supersede with a new entry. D-entries record choices with rationale — including genuine rejections (“considered X, rejected because…”). They never record deferrals: “not now” is a ROADMAP fact (candidate row or future milestone), not a decision.</em></p>
+<section id="d-001-2026-08-16-adopt-cairn-with-the-generic-toolchain-profile" class="level3">
+<h3 class="anchored" data-anchor-id="d-001-2026-08-16-adopt-cairn-with-the-generic-toolchain-profile">D-001 (2026-08-16): Adopt cairn with the generic toolchain profile</h3>
+<p><strong>Context:</strong> The repo is a Quarto extension (Lua shortcodes + <code>_extension.yml</code>) with no <code>DESCRIPTION</code>, <code>pyproject.toml</code>, or <code>Dockerfile</code> — none of cairn’s recognized toolchain markers. <strong>Decision:</strong> Adopt cairn on the <code>generic</code> profile, declaring <code>quarto render</code> as the <code>verify</code> command and <code>CHANGELOG.md</code> as the changelog file. <strong>Consequences:</strong> No toolchain-specific consistency gate; the tag is the release (no package-registry step). <code>verify</code> rests on the demo render until a real Lua test harness exists (banked as a ROADMAP candidate).</p>
 
 
 </section>
