@@ -4,3 +4,8 @@
 /.luarc.json
 
 /.quarto/
+
+# cairn
+cairn/references/sources/
+cairn/.merge-approved
+cairn/.merge-approved.pending
